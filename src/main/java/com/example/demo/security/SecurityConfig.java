@@ -1,5 +1,6 @@
 package com.example.demo.security;
 
+import com.example.demo.models.role.Role;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.CustomUserDetailsService;
 import com.example.demo.service.TokenService;
@@ -56,7 +57,9 @@ public class SecurityConfig {
 				.with(jwtAuthenticationConfigurer, Customizer.withDefaults())
 				.httpBasic(Customizer.withDefaults())
 				.authorizeHttpRequests(request ->
-						request.requestMatchers("/api/user/registration", "/error", "/doc/**", "/jwt/tokens")
+						request
+								.requestMatchers("/api/user/delete").hasRole("ADMIN")
+								.requestMatchers("/api/user/registration", "/error", "/doc/**", "/jwt/tokens")
 								.permitAll().anyRequest().authenticated())
 				.sessionManagement(sessionManagement ->
 						sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
