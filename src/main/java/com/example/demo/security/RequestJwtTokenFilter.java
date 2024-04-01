@@ -45,9 +45,7 @@ public class RequestJwtTokenFilter extends OncePerRequestFilter {
                     response.setContentType(MediaType.APPLICATION_JSON_VALUE);
                     this.objectMapper.writeValue(response.getWriter(),
                             new Tokens(this.tokenService.accessTokenStringSerializer(accessToken),
-                                    accessToken.expiresAt().toString(),
-                                    this.tokenService.refreshTokenStringSerializer(refreshToken),
-                                    refreshToken.expiresAt().toString()));
+                                    this.tokenService.refreshTokenStringSerializer(refreshToken)));
                     return;
                 }
             }

@@ -20,9 +20,9 @@ import java.io.IOException;
 import java.util.Date;
 
 public class JwtLogoutFilter extends OncePerRequestFilter {
-    private RequestMatcher requestMatcher = new AntPathRequestMatcher("/jwt/logout", HttpMethod.POST.name());
+    private final RequestMatcher requestMatcher = new AntPathRequestMatcher("/jwt/logout", HttpMethod.POST.name());
 
-    private SecurityContextRepository securityContextRepository = new RequestAttributeSecurityContextRepository();
+    private final SecurityContextRepository securityContextRepository = new RequestAttributeSecurityContextRepository();
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         if (this.requestMatcher.matches(request)) {
