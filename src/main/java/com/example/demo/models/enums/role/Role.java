@@ -1,4 +1,4 @@
-package com.example.demo.models.role;
+package com.example.demo.models.enums.role;
 
 import org.springframework.security.core.GrantedAuthority;
 

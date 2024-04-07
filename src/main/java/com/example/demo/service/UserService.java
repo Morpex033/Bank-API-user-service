@@ -2,9 +2,10 @@ package com.example.demo.service;
 
 import com.example.demo.dto.UserDto;
 import com.example.demo.dto.UserRequestDto;
+import com.example.demo.models.Account;
 import com.example.demo.models.TokenUser;
 import com.example.demo.models.User;
-import com.example.demo.models.role.Role;
+import com.example.demo.models.enums.role.Role;
 import com.example.demo.repository.UserRepository;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

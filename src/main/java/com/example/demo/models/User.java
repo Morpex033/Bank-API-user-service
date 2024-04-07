@@ -6,11 +6,10 @@ import java.util.UUID;
 
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.demo.models.role.Role;
+import com.example.demo.models.enums.role.Role;
 
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -38,6 +37,9 @@ public class User implements UserDetails{
 	@Column
 	@NonNull
 	private String password;
+
+	@OneToOne
+	private Account account;
 	
 	@ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
 	@CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))

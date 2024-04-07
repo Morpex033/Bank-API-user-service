@@ -1,7 +1,5 @@
 package com.example.demo.security;
 
-import com.example.demo.models.role.Role;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.CustomUserDetailsService;
 import com.example.demo.service.TokenService;
 import com.nimbusds.jose.JOSEException;
